@@ -1,7 +1,5 @@
 
 * {
-    margin: 0;
-	padding: 0;
 	box-sizing: border-box;
     font: 100 30px Helvetica, Arial, sans-serif;
 }
@@ -19,10 +17,14 @@ div.main { padding: 40px;}
     padding: 3px;
 }
 .input-screen {
-    width: 100%;
-    height: 120px;
     background-color: #000000;
     border-radius: 5px;
+    color: #ffffff;
+    font-size: 60px;
+    padding: 30px 15px;
+    user-select: none;
+    text-align: right;
+    min-height: 60px;
 }
 #keypad {width: 100%; text-align: center; margin-top: 2px;}
 #keypad div {
@@ -31,6 +33,8 @@ div.main { padding: 40px;}
     width: 76.75px;
     margin: 1px;
     line-height: 222%;
+    cursor: pointer;
+    user-select: none;
 }
 
 #keypad div.zero-key {
@@ -39,6 +43,9 @@ div.main { padding: 40px;}
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   #keypad div.zero-key {
     width: 155.5px; /* fix for webkit browsers */
+  }
+  .input-screen {
+     min-height: 120px;
   }
 }
 .key-orange {
