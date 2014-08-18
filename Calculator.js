@@ -85,9 +85,7 @@ function Calculator() {
 		if (input === 'AC') {
 
 			me.setScreenValue(0);
-			// TODO: deal with testing and no dom elements. Remove highlight from button.
 			mem.operator = null;
-			//getOperator(null);
 			setClearBtnValue('AC');
 
 			mem.leftOperand = 0;
@@ -105,7 +103,7 @@ function Calculator() {
 
 		} else if (input === '%') {
 
-			console.log('percent ');
+			// TODO: Implement
 
 
 		} else if (input === '+/-') {
@@ -114,7 +112,6 @@ function Calculator() {
 
 		} else if (mem.operators.indexOf(input) !== -1) {
 
-			// TODO: button value reset
 			setClearBtnValue('C');
 			mem.operator = input;
 			mem.leftOperand = me.getScreenValue();

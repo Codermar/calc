@@ -27,3 +27,6 @@ Files and Directories Included
 * /jasmine: The required Jasmine framework files for testing.
 * /test: The Jasmine specs and the SpecRunner 
 
+## Author
+
+Jose Alfonso - jgalfonso@me.com - 415 532-9500
