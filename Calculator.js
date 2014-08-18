@@ -24,8 +24,6 @@ function Calculator() {
 
 		mem.isNegative = !mem.isNegative;
 
-		//console.log('------isNeg: ', mem.isNegative, ' screen val: ', me.getScreenValue(), ' appendInput: ', mem.appendInput, ' left: ', mem.isLeftOperand, ' ** reset: ', mem.resetNegInput);
-
 		if (mem.operator !== null && mem.isNegative && !mem.resetNegInput) {
 			me.setScreenValue(-0);
 			mem.resetNegInput = true;
@@ -35,7 +33,8 @@ function Calculator() {
 			me.setScreenValue('-' + me.getScreenValue());
 		} else {
 			var num = me.getScreenValue();
-			me.setScreenValue(num *= -1);
+				num *= -1;
+			me.setScreenValue(num);
 		}
 
 		if (mem.isLeftOperand) {
@@ -52,9 +51,9 @@ function Calculator() {
 	};
 
 	var resolveEquation = function () {
-		var equation = mem.leftOperand + mem.operator + mem.rightOperand;
+		var result, equation = mem.leftOperand + mem.operator + mem.rightOperand;
 		equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
-		var result = eval(equation);
+		result = eval(equation);
 		me.setScreenValue(result);
 
 		mem.leftOperand = result;
@@ -77,12 +76,12 @@ function Calculator() {
 
 	// public methods
 	me.processInput = function (input) {
-		var result, isOperator;
 
 		if (input === 'AC') {
 
 			me.setScreenValue(0);
 			mem.operator = null;
+
 			setClearBtnValue('AC');
 
 			mem.operatorCount = 0;
@@ -97,6 +96,7 @@ function Calculator() {
 
 			me.setScreenValue(0);
 			mem.rightOperand = 0;
+			
 			setClearBtnValue('AC');
 
 		} else if (input === '%') {
@@ -113,9 +113,6 @@ function Calculator() {
 			setClearBtnValue('C');
 
 			mem.operatorCount += input !== '=' ? 1 : 0;
-
-			//console.log(' ---count: ',mem.operatorCount, ' ** mem.oper: ', mem.operator, ' input: ',input, ' ** ', ' test: ',(mem.operator !== null && input !== '=' ) );
-
 			mem.operator = input;
 
 			if(mem.operatorCount > 1) {
@@ -142,7 +139,6 @@ function Calculator() {
 
 
 				if (!mem.appendInput) {
-
 
 					if (mem.isNegative) {
 						me.setScreenValue('-' + input);
@@ -171,17 +167,7 @@ function Calculator() {
 
 		}
 
-		// TODO: temp remove after testing
-		if (!isNaN(input)) {
-			var isLeft = ' ** isLeftOperand: ' + mem.isLeftOperand;
-		} else {
-			var isLeft = '';
-		}
-
-		console.log('input: ', input, ' ** currval: ', me.getScreenValue(), isLeft, ' ** append: ', mem.appendInput, ' reset: ', mem.resetNegInput, 'mem: ', mem);
-
-
-		return me.getScreenValue();
+		//return me.getScreenValue();
 	};
 
 }
