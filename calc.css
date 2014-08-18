@@ -1,12 +1,14 @@
 
 * {
 	box-sizing: border-box;
-    font: 100 30px Helvetica, Arial, sans-serif;
+    font: 100 14px Helvetica, Arial, sans-serif;
 }
-p {font-size: 20px;}
-
-div.main { padding: 40px;}
-
+/*
+div.features {
+    float: right;
+}
+div.main { float: left;}
+*/
 #calculator {
     width: 325px;
     height: 480px;
@@ -26,8 +28,13 @@ div.main { padding: 40px;}
     text-align: right;
     min-height: 60px;
 }
-#keypad {width: 100%; text-align: center; margin-top: 2px;}
+#keypad {
+    width: 100%;
+
+    text-align: center;
+    margin-top: 2px;}
 #keypad div {
+    font: 100 30px Helvetica, Arial, sans-serif;
     float: left;
     border: 1px solid #808080;
     width: 76.75px;
