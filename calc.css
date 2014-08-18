@@ -1,14 +1,11 @@
-
 * {
 	box-sizing: border-box;
+}
+body {
     font: 100 14px Helvetica, Arial, sans-serif;
 }
-/*
-div.features {
-    float: right;
-}
-div.main { float: left;}
-*/
+
+section { padding: 25px 50px; }
 #calculator {
     width: 325px;
     height: 480px;
@@ -17,6 +14,8 @@ div.main { float: left;}
     border: 1px solid #000000;
     text-align: center;
     padding: 3px;
+    font: 100 14px Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
 }
 .input-screen {
     background-color: #000000;
@@ -30,9 +29,9 @@ div.main { float: left;}
 }
 #keypad {
     width: 100%;
-
     text-align: center;
-    margin-top: 2px;}
+    margin-top: 2px;
+}
 #keypad div {
     font: 100 30px Helvetica, Arial, sans-serif;
     float: left;
@@ -43,7 +42,9 @@ div.main { float: left;}
     cursor: pointer;
     user-select: none;
 }
-
+#keypad div:hover {
+    background-color: #c5c7c9;
+}
 #keypad div.zero-key {
     width: 157.5px;
 }
@@ -54,10 +55,16 @@ div.main { float: left;}
   .input-screen {
      min-height: 120px;
   }
+  #keypad div {
+    line-height: 217%;
+  }
 }
 .key-orange {
     background-color: #f89212;
     color: #ffffff;
+}
+#keypad div.key-orange:hover {
+ background-color: #f89224;
 }
 #keypad div.key-darker-gray {
     background-color: #c5c7c9;

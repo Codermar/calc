@@ -10,53 +10,54 @@
 <body>
 
 <section>
-    <div class="main">
 
-        <h2>Simple Calculator Challenge</h2>
-        <p>The calculator UI is similar in style to the iPhone 5 calculator</p>
-
-        <div id="calculator">
-            <div class="input-screen">0</div>
-
-            <div id="keypad">
-                <div class="key-darker-gray" id="clear-btn">AC</div>
-                <div class="key-darker-gray">+/-</div>
-                <div class="key-darker-gray">%</div>
-                <div class="key-orange">&divide;</div>
-
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div class="key-orange">x</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div class="key-orange">-</div>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div class="key-orange">+</div>
-
-                <div class="zero-key">0</div>
-                <div class="eval">.</div>
-                <div class="key-orange">=</div>
-            </div>
-        </div>
-
-    </div>
     <div class="features">
+         <h2>Simple Calculator Challenge</h2>
+        <p>A simple browser calculator with a UI design emulating the iPhone 5 (OSx 7) calculator.</p>
         <h3>Features:</h3>
         <ul>
-            <li>Chaining results</li>
-            <li>Self operating numbers. i.e press 5 x then = and you get the result of 5x5</li>
+            <li>Addition, subtraction, multiplication and division</li>
+            <li>Chaining of results</li>
+            <li>Clearing results for all input and for the right operand.</li>
+            <li>Self operating numbers. i.e press 5 x then = and you get the result of 5x5.</li>
+            <li>Continued processing: Pressing the = key after entering the right operand will continue processing the result indefinitely.</li>
         </ul>
     </div>
+
+    <div id="calculator">
+        <div class="input-screen">0</div>
+
+        <div id="keypad">
+            <div class="key-darker-gray" id="clear-btn">AC</div>
+            <div class="key-darker-gray">+/-</div>
+            <div class="key-darker-gray">%</div>
+            <div class="key-orange">&divide;</div>
+
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div class="key-orange">x</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div class="key-orange">-</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div class="key-orange">+</div>
+
+            <div class="zero-key">0</div>
+            <div class="eval">.</div>
+            <div class="key-orange">=</div>
+        </div>
+    </div>
+
 </section>
 
 <script type="text/javascript" src="Calculator.js"></script>
 <script src="calc.js"></script>
 
-<!--
+<!-- To run jasmine
 <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-2.0.1/jasmine_favicon.png">
 <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.0.1/jasmine.css">
 
