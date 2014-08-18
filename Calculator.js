@@ -1,18 +1,19 @@
 function Calculator() {
 
-	var me = this, operElms;
-	var mem = {
-		screenValue: 0,
-		leftOperand: 0,
-		rightOperand: 0,
-		operator: null,
-		operators: ['+', '-', 'x', '÷'],
-		clear: 'AC',
-		isLeftOperand: true,
-		resetNegInput: true,
-		appendInput: false,
-		isNegative: false
-	};
+	var me = this,
+		mem = {
+			screenValue: 0,
+			leftOperand: 0,
+			rightOperand: 0,
+			operator: null,
+			operators: ['+', '-', 'x', '÷'],
+			clear: 'AC',
+			isLeftOperand: true,
+			resetNegInput: true,
+			appendInput: false,
+			isNegative: false,
+			operatorCount: 0
+		};
 
 
 	var hasDecimal = function (num) {
@@ -54,13 +55,9 @@ function Calculator() {
 		var equation = mem.leftOperand + mem.operator + mem.rightOperand;
 		equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 		var result = eval(equation);
-
-		//console.log('result: ', result, ' eq: ', equation);
 		me.setScreenValue(result);
-		//mem.operator = getOperator(null);
 
 		mem.leftOperand = result;
-		//mem.rightOperand = result;
 		mem.appendInput = false;
 		mem.resetNegInput = false;
 		mem.isLeftOperand = true;
@@ -88,6 +85,7 @@ function Calculator() {
 			mem.operator = null;
 			setClearBtnValue('AC');
 
+			mem.operatorCount = 0;
 			mem.leftOperand = 0;
 			mem.rightOperand = 0;
 			mem.appendInput = false;
@@ -103,7 +101,7 @@ function Calculator() {
 
 		} else if (input === '%') {
 
-			// TODO: Implement
+			// TODO: Implement percent
 
 
 		} else if (input === '+/-') {
@@ -113,9 +111,20 @@ function Calculator() {
 		} else if (mem.operators.indexOf(input) !== -1) {
 
 			setClearBtnValue('C');
+
+			mem.operatorCount += input !== '=' ? 1 : 0;
+
+			//console.log(' ---count: ',mem.operatorCount, ' ** mem.oper: ', mem.operator, ' input: ',input, ' ** ', ' test: ',(mem.operator !== null && input !== '=' ) );
+
 			mem.operator = input;
+
+			if(mem.operatorCount > 1) {
+				resolveEquation();
+			} else {
+				mem.rightOperand = me.getScreenValue();
+			}
+
 			mem.leftOperand = me.getScreenValue();
-			mem.rightOperand = me.getScreenValue();
 
 			mem.isNegative = false;
 			mem.appendInput = false;
@@ -125,6 +134,7 @@ function Calculator() {
 		} else if (input === '=') {
 
 			resolveEquation();
+			mem.operatorCount = 0;
 
 		} else {
 

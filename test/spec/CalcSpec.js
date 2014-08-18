@@ -42,19 +42,53 @@ describe("Calculator Challenge Test Suite", function () {
 
 		describe('Test processInput()', function () {
 
-			// TODO: this is failing
-//			it('Tests chaining input', function () {
-//				testCalc.processInput('AC');
-//				testCalc.processInput('3');
-//				testCalc.processInput('x');
-//				testCalc.processInput('3');
-//				testCalc.processInput('x');
-//				expect(mem.screenValue).toBe(9);
-//				testCalc.processInput('3');
-//
-////				testCalc.processInput('=');
-//
-//			});
+			it('Test toggleSign(). Switching an operand +/- Sign', function () {
+
+				testCalc.processInput('AC');
+				testCalc.processInput('7');
+				expect(mem.screenValue).toBe('7');
+				testCalc.processInput('+/-');
+				expect(mem.screenValue).toBe('-7');
+				expect(mem.leftOperand).toBe('-7');
+
+				testCalc.processInput('+');
+				testCalc.processInput('5');
+				testCalc.processInput('=');
+				expect(mem.screenValue).toBe(-2);
+
+				testCalc.processInput('+');
+				testCalc.processInput('5');
+				testCalc.processInput('=');
+				expect(mem.screenValue).toBe(3);
+
+				testCalc.processInput('+');
+				testCalc.processInput('+/-');
+				testCalc.processInput('7');
+				testCalc.processInput('=');
+				expect(mem.screenValue).toBe(-4);
+
+			});
+
+			it('Tests chaining input', function () {
+				testCalc.processInput('AC');
+				testCalc.processInput('3');
+				testCalc.processInput('x');
+				testCalc.processInput('3');
+
+				testCalc.processInput('x');
+
+				expect(mem.operatorCount).toBe(2);
+				expect(mem.screenValue).toBe(9);
+				testCalc.processInput('3');
+
+				testCalc.processInput('x');
+
+				expect(mem.screenValue).toBe(27);
+				expect(mem.operatorCount).toBe(3);
+
+				testCalc.processInput('=');
+				expect(mem.screenValue).toBe(81);
+			});
 
 			it('Tests multiplication with negative input', function () {
 				testCalc.processInput('AC');
@@ -164,74 +198,9 @@ describe("Calculator Challenge Test Suite", function () {
 
 			});
 
-			it('Test toggleSign(). Switching an operand +/- Sign', function () {
-
-				testCalc.processInput('AC');
-				testCalc.processInput('7');
-				expect(mem.screenValue).toBe('7');
-				testCalc.processInput('+/-');
-				expect(mem.screenValue).toBe('-7');
-				expect(mem.leftOperand).toBe('-7');
-
-//				testCalc.processInput('+/-');
-//				expect(mem.screenValue).toBe(7);
-
-				testCalc.processInput('+');
-				testCalc.processInput('5');
-				testCalc.processInput('=');
-				expect(mem.screenValue).toBe(-2);
-
-				testCalc.processInput('+');
-				testCalc.processInput('5');
-				testCalc.processInput('=');
-				expect(mem.screenValue).toBe(3);
-
-				testCalc.processInput('+');
-				testCalc.processInput('+/-');
-				testCalc.processInput('7');
-				testCalc.processInput('=');
-				expect(mem.screenValue).toBe(-4);
-
-			});
-
 		});
 
 
 	});
-
-
-	/// tests involving Calculator as an object
-//	describe('Calculator Initialization', function () {
-//
-//		it('Calculator Should be defined', function () {
-//			expect(Calculator).toBeDefined();
-//		});
-//
-//		it('Calculator is initialized', function () {
-//			expect(Calculator.mem).toBeDefined();
-//		});
-//
-//		it('Sets and gets virtual screen value of 5', function () {
-//
-//			Calculator.setScreenValue(5);
-//
-//			//expect(Calculator.setScreenValue).toBeDefined();
-//			expect(Calculator.getScreenValue()).toBe(5);
-//		});
-//
-//
-//	});
-//
-//	describe("getScreenValue test", function() {
-//
-//	    it("calls the getScreenValue() function", function() {
-//	        //var testPerson = new Person();
-//	        spyOn(Calculator, "getScreenValue");
-//	        Calculator.getScreenValue();
-//	        expect(Calculator.getScreenValue).toHaveBeenCalled();
-//	    });
-//
-//	});
-
 
 });
