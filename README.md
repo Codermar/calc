@@ -4,7 +4,7 @@ Calculator Challenge
 A simple browser calculator with a UI design emulating the iPhone 5 (OSx 7) calculator.
 
 
-[Running Example Sample Site]
+[Running Sample Site]
 
 ## Features
 
@@ -38,4 +38,4 @@ Files and Directories Included
 
 Jose Alfonso - jgalfonso@me.com - 415 532-9500
 
-[Running Example Sample Site]: http://codermar.com/samples/calc/
+[Running Sample Site]: http://codermar.com/samples/calc/
